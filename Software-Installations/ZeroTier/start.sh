@@ -13,7 +13,7 @@ installzerotier()
             updatezerotier
         else
             echo "Exiting script."
-            exit
+            finish
         fi
     else
         echo "Downloading ZeroTier..."
@@ -34,4 +34,19 @@ updatezerotier()
     apt-get update
     apt-get upgrade zerotier-one -y
     if [ !"$status" == *"200 info"*"ONLINE" ]
+    then
+        echo "ZeroTier updates are installed."
+        echo "Exiting script."
+        finish
+    else
+        echo "ZeroTier isn't running when it should be after the update."
+        echo "Here is the current status of ZeroTier:"
+        zerotier-cli status
+    fi
 }
+
+finish()
+{
+    # Put cleanup code here.
+}
+trap finish exit
