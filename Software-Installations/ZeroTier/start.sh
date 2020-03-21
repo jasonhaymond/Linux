@@ -33,7 +33,7 @@ updatezerotier()
     echo "Getting updates for ZeroTier..."
     apt-get update
     apt-get upgrade zerotier-one -y
-    if [ !"$status" == *"200 info"*"ONLINE" ]
+    if [ ! "$status" == *"200 info"*"ONLINE" ]
     then
         echo "ZeroTier updates are installed."
         echo "Exiting script."
