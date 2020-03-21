@@ -4,7 +4,7 @@ installzerotier()
 {
     echo "Checking for existing ZeroTier installation..."
     status=$(zerotier-cli status)
-    if [ "$status" == *"200 info"* ]
+    if [[ "$status" == *"200 info"* ]]
     then
         echo "ZeroTier is already installed."
         read -p "Check for updates? [y/n]: " updates
@@ -33,7 +33,7 @@ updatezerotier()
     echo "Getting updates for ZeroTier..."
     apt-get update
     apt-get upgrade zerotier-one -y
-    if [ ! "$status" == *"200 info"*"ONLINE" ]
+    if [[ ! "$status" == *"200 info"*"ONLINE" ]]
     then
         echo "ZeroTier updates are installed."
         echo "Exiting script."
@@ -48,5 +48,6 @@ updatezerotier()
 finish()
 {
     # Put cleanup code here.
+    echo "Cleaning up..."
 }
 trap finish exit
