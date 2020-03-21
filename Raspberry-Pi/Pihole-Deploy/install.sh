@@ -128,6 +128,24 @@ setpassword()
     fi
 }
 
+autosystemupdates()
+{
+    # Reference URL for unatttended-upgrades: https://wiki.debian.org/UnattendedUpgrades
+    
+    # Deploy crontab task to download and install updates on a schedule.
+    echo
+    echo "Automatic updates setup is still under development."
+    #read -p "Custom schedule? [y/n]: " settype
+    #if [ "$settype" = "y" ] || [ "$settype" = "Y" ]
+    #then
+        # Get custom schedule here.
+    #elif [ "$settype" = "n" ] || [ "$settpye" = "N" ]
+    #then
+        # Use default schedule here.
+    #fi
+
+}
+
 # Setup networking.
 getnetinfo
 
@@ -221,5 +239,11 @@ elif [ "$zerotierinstall" = "n" ] || [ "$zerotierinstall" = "N" ]
 then
     echo -e "\e[1;92mUser requested no ZeroTier.  Skipping ZeroTier installation.\e[0m"
 fi
-echo -e "\e[1;92mSetup is complete.  Exiting script.\e[0m"
-exit
+
+autosystemupdates
+
+finish()
+{
+    echo -e "\e[1;92mSetup is complete.  Exiting script.\e[0m"
+}
+trap finish exit
