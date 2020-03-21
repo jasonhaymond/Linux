@@ -4,12 +4,11 @@ Used for deploying Pihole servers
 # Installation
 Run the following commands in the terminal:
 ```bash
-curl -sSLO https://raw.gitusercontent.com/jasonhaymond/PiHole-Deploy/master/setup.sh | sudo bash
+curl -sSLO https://raw.gitusercontent.com/jasonhaymond/Linux/master/Raspberry-Pi/PiHole-Deploy/start.sh | sudo bash
 ```
 
 # Todo List
 - Convert ZeroTier installation into a function.
-- Add check too see if ZeroTier is already installed.
 - Add function for system scheduled automatic updates.
     -  https://askubuntu.com/questions/923535/schedule-apt-get-script-using-cron
 - Add reset function to reset pi to factory defaults (if possible).
@@ -23,5 +22,3 @@ curl -sSLO https://raw.gitusercontent.com/jasonhaymond/PiHole-Deploy/master/setu
     -  http://redsymbol.net/articles/bash-exit-traps/
 - Add function for DNS over https.
     -  https://docs.pi-hole.net/guides/dns-over-https/
-- Restructure GitHub repos and split tasks into separate files.
-    -  https://stackoverflow.com/questions/8352851/how-to-call-one-shell-script-from-another-shell-script

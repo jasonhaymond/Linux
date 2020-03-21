@@ -1,11 +1,5 @@
 #!/bin/bash
 
-echo
-echo
-echo "Pihole setup script 'pihole-setup.sh' version 1.65"
-echo
-echo
-
 # This script is used to configure a new Raspberry Pi image and setup Pihole and all it's requirements.
 
 # Function for setting hostname and IP address.
@@ -205,13 +199,13 @@ fi
 # Install Pihole.
 echo
 echo -e "\e[1;92mInstalling Pihole...\e[0m"
+echo "Setting up pre-install files..."
 mkdir /etc/pihole
-chmod 777 /etc/pihole
-cd /etc/pihole || exit
-curl -LO https://raw.githubusercontent.com/jasonhaymond/PiHole-Deploy/master/setupVars.conf
-curl -LO https://raw.githubusercontent.com/jasonhaymond/PiHole-Deploy/master/adlists.list
+chmod 755 /etc/pihole
+cp /home/pi/PiHole-Deploy/{setupVars.conf,adlists.list} /etc/pihole
 echo "IPV4_ADDRESS=$ipv4" >> /etc/pihole/setupVars.conf
 echo "IPV6_ADDRESS=" >> /etc/pihole/setupVars.conf
+echo "Downloading and running Pihole installer..."
 curl -LO https://install.pi-hole.net | bash /dev/stdin --unattended
 echo
 echo -e "\e[1;92mPlease set the Pihole web interface password...\e[0m"
@@ -220,19 +214,9 @@ pihole -a password
 # Install ZeroTier and join network.
 if [ "$zerotierinstall" = "y" ] || [ "$zerotierinstall" = "Y" ] || [ "$zerotierinstall" = "" ]
 then
-    echo
-    echo -e "\e[1;92mInstalling ZeroTier...\e[0m"
-    curl -LO "https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg" | gpg --import
-    echo "Checking download link..."
-    if z=$(curl -LO "https://install.zerotier.com/" | gpg)
-    then
-        echo "Link okay."
-        echo "Downloading..."
-        echo "$z" | bash
-    fi
-    echo -e "\e[1;92mEnter ZeroTier network ID...\e[0m"
-    zerotier-cli join "$zerotiernetwork"
-    fi
+    curl -LO https://raw.githubuercontent.com/jasonhaymond/Linux/master/Software-Installations/ZeroTier
+    source ./ZeroTier/start.sh
+    installzerotier
 elif [ "$zerotierinstall" = "n" ] || [ "$zerotierinstall" = "N" ]
 then
     echo -e "\e[1;92mUser requested no ZeroTier.  Skipping ZeroTier installation.\e[0m"
