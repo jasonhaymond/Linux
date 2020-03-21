@@ -13,7 +13,7 @@ getnetinfo()
         read -p "Enter subnet mask [leave blank for 255.255.255.0]: " netmask
         read -p "Enter LAN gateway IP: " gateway
         read -p "Enter DNS IP [Leave blank for 8.8.8.8]: " dns
-        if [-n "$dns" ]
+        if [ -n "$dns" ]
         then
             dns="8.8.8.8"
         fi
@@ -93,7 +93,7 @@ createuser()
     read -p "Create another user? [y/n]: " again
     if [ -z "$again" ]
     then
-        if [ "$again"="y" ] || [ "$again"="Y" ]
+        if [ "$again" = "y" ] || [ "$again" = "Y" ]
         then
             createuser
         fi
@@ -216,7 +216,7 @@ if [ "$zerotierinstall" = "y" ] || [ "$zerotierinstall" = "Y" ] || [ "$zerotieri
 then
     curl -LO https://raw.githubuercontent.com/jasonhaymond/Linux/master/Software-Installations/ZeroTier
     source ./ZeroTier/start.sh
-    installzerotier
+    installzerotier "$networkid"
 elif [ "$zerotierinstall" = "n" ] || [ "$zerotierinstall" = "N" ]
 then
     echo -e "\e[1;92mUser requested no ZeroTier.  Skipping ZeroTier installation.\e[0m"
