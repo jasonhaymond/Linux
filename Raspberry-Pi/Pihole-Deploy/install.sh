@@ -220,7 +220,7 @@ echo -e "\e[1;92mInstalling Pihole...\e[0m"
 echo "Setting up pre-install files..."
 mkdir /etc/pihole
 chmod 755 /etc/pihole
-cp ./PiHole-Deploy/{setupVars.conf,adlists.list,whitelist.list} /etc/pihole
+cp ./PiHole-Deploy/{setupVars.conf,adlists.list,whitelist.list,blacklist.list} /etc/pihole
 echo "IPV4_ADDRESS=$ipv4" >> /etc/pihole/setupVars.conf
 echo "IPV6_ADDRESS=" >> /etc/pihole/setupVars.conf
 echo "Downloading and running Pihole installer..."
