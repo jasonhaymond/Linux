@@ -1,0 +1,2 @@
+127.0.0.1 micro-goyal.azurewebsites.net
+127.0.0.1 r9---sn-3c27sn7r.googlevideo.com
