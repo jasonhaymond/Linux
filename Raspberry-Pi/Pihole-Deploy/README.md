@@ -4,7 +4,9 @@ Used for deploying Pihole servers
 # Installation
 Run the following commands in the terminal:
 ```bash
-curl -sSLO https://raw.gitusercontent.com/jasonhaymond/Linux/master/Raspberry-Pi/PiHole-Deploy/start.sh | sudo bash
+curl -sSLO https://raw.gitusercontent.com/jasonhaymond/Linux/master/Raspberry-Pi/PiHole-Deploy/start.sh
+chmod +x start.sh
+sudo start.sh
 ```
 
 # Todo List
