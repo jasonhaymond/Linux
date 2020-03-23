@@ -484,3 +484,30 @@ bigzipfiles.facebook.com
 
 # Nvidia GeForce
 gfwsl.geforce.com
+
+# Windows 10 updates
+settings-win.data.microsoft.com
+v10.vortex-win.data.microsoft.com
+v20.vortex-win.data.microsoft.com
+
+# Roku episodes thumbnails
+f1.media.brightcove.com
+
+# CNN app on IOS
+dynaimage.cdn.turner.com
+bea4.v.fwmrm.net
+
+# Windows Defender
+wdcpalt.microsoft.com
+tsfe.trafficshaping.dsp.mp.microsoft.com
+
+# Ubiquiti
+pro.ip-api.com
+reports.crashlytics.com
+
+# Scratch editor
+www.google-analytics.com
+
+# Google maps
+app-measurement.com
+
